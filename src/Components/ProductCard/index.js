@@ -1,31 +1,44 @@
-function ProductCard() {
+import PropTypes from 'prop-types';
+import './style.scss';
+
+function ProductCard(props) {
+  const { data } = props;
   return (
-    <div className="product-card">
-      <div className="product-card__image">
-        <img src="https://via.placeholder.com/300x200" alt="product" />
+    <div className="container">
+      <div className="container__image">
+        <img
+          src={data.image}
+          alt="product"
+          className="container__image__foto"
+        />
       </div>
-      <div className="product-card__info">
-        <div className="product-card__title">
-          <h3>Product Name</h3>
-        </div>
-        <div className="product-card__price">
-          <h3>$100</h3>
-        </div>
-        <div className="product-card__description">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            euismod, nisi vel consectetur interdum, nisl nunc consectetur erat,
-            eget tincidunt nisl nunc eget lorem.
-          </p>
-        </div>
-        <div className="product-card__actions">
-          <button className="btn btn-primary" type="button">
-            Add to cart
+      <div className="container__text">
+        <b>{data.title}</b>
+      </div>
+      <div className="container__time">
+        <div className="container__time__watch">00:00:00</div>
+        <div className="container__time__button">
+          <button type="button" className="button">
+            Go to Detail
           </button>
         </div>
       </div>
     </div>
   );
 }
+ProductCard.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    image: PropTypes.string,
+  }),
+};
 
+ProductCard.defaultProps = {
+  data: {
+    image: '',
+    title: '',
+    id: 0,
+  },
+};
 export default ProductCard;

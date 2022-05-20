@@ -1,0 +1,31 @@
+.container {
+	margin: 6px;
+	padding: -5px 20px 20px 20px;
+	border-color: black;
+	border-style: solid;
+	justify-content: center;
+	border-radius: 10px;
+	height: 250px;
+	width: auto;
+	display: grid;
+	grid-template-rows: 70% 15% 15%;
+	&__text{
+		text-align: center;
+	}
+	&__image {
+		display: flex;
+		justify-content: center;
+		margin: 10px;
+		&__foto{
+			object-fit: contain;
+		}
+	}
+	&__time{
+		display: grid;
+		grid-template-columns: auto auto;
+		justify-content: space-between;
+		flex-direction: row;
+		padding: 3% 10% 10% 10%;
+	}
+}
+
