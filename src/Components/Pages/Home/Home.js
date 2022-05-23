@@ -1,4 +1,4 @@
-import Card from '../../Components/ProductCard';
+import Card from '../../ProductCard';
 import './styles.scss';
 
 function Home() {
