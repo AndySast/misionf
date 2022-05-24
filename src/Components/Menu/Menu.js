@@ -9,7 +9,7 @@ function Menu() {
           Home
         </button>
       </Link>
-      <Link to="/about">
+      <Link to="/About">
         <button type="submit" className="dos">
           About
         </button>

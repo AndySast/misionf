@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 function ProductCard(props) {
@@ -18,9 +19,11 @@ function ProductCard(props) {
       <div className="container__time">
         <div className="container__time__watch">00:00:00</div>
         <div className="container__time__button">
-          <button type="button" className="button">
-            Go to Detail
-          </button>
+          <Link to={`/detalle/${data.id}`}>
+            <button type="button" className="button">
+              Go to Detail
+            </button>
+          </Link>
         </div>
       </div>
     </div>
