@@ -1,0 +1,33 @@
+h1 {
+	margin: 0;
+}
+.person {
+	display: grid;
+	flex-direction: column;
+	grid-template-columns: 1fr 3fr;
+	align-items: center;
+	border: 5px solid #ccc;
+	border-radius: 10px;
+	width: 1000px;
+	margin: 20px;
+	&__ti {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 10px;
+		&--name {
+			font-weight: bold;
+			text-align: center;
+		}
+		&__image {
+			display: flex;
+			justify-content: center;
+			&--foto {
+				height: 200px;
+				object-fit: contain;
+				border-radius: 30px;
+				border: 2px solid #000;
+			}
+		}
+	}
+}
