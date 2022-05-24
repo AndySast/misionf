@@ -19,7 +19,7 @@ function ProductCard(props) {
       <div className="container__time">
         <div className="container__time__watch">00:00:00</div>
         <div className="container__time__button">
-          <Link to={`/detalle/${data.id}`}>
+          <Link to={`/ProductDetail/${data.id}`}>
             <button type="button" className="button">
               Go to Detail
             </button>
