@@ -14,11 +14,6 @@ function Menu() {
           About
         </button>
       </Link>
-      <Link to="/ProductDetail">
-        <button type="submit" className="tres">
-          ProductDetail
-        </button>
-      </Link>
     </div>
   );
 }

@@ -1,8 +1,17 @@
-import data from '../../../assets/assets.json';
+import { useEffect, useState } from 'react';
+import Services from '../../../services/Services';
 import Card from '../../ProductCard';
 import './styles.scss';
 
 function Home() {
+  const [data, setData] = useState([]);
+  const products = async () => {
+    const fdata = await Services.CallProducts();
+    setData(fdata);
+  };
+  useEffect(() => {
+    products();
+  }, []);
   return (
     <div className="App">
       <div className="App__title">

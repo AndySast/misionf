@@ -1,40 +1,41 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Services from '../../../services/Services';
 import './style.scss';
 
 function ProductDetail() {
-  const object = {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-    price: 109.95,
-    description:
-      'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    category: "men's clothing",
-    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const [rateData, setRateData] = useState([]);
+  const product = async () => {
+    const fdata = await Services.CallProduct(id);
+    setData(fdata);
+    setRateData(fdata.rating);
   };
+  useEffect(() => {
+    product();
+  }, []);
   return (
     <div className="detail">
-      <img src={object.image} alt="" className="detail--img" />
+      <img src={data.image} alt="" className="detail--img" />
       <div className="detail__text">
-        <h3 className="detail__text--title">{object.title}</h3>
+        <h3 className="detail__text--title">{data.title}</h3>
         <p className="detail__text--description">
-          {`Description: ${object.description}`}
+          {`Description: ${data.description}`}
         </p>
         <p className="detail__text--price">
           {'Price: '}
-          <b>{object.price}</b>
+          <b>{data.price}</b>
         </p>
-        <p className="detail__text--category">{object.category}</p>
+        <p className="detail__text--category">{data.category}</p>
         <div className="detail__text__rating">
           <p>
             {'Rating '}
-            <b>{object.rating.rate}</b>
+            <b>{rateData.rate}</b>
           </p>
           <p>
             {'Count '}
-            <b>{object.rating.count}</b>
+            <b>{rateData.count}</b>
           </p>
         </div>
       </div>
