@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import Countdown from 'react-countdown';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
 function ProductCard(props) {
+  const [validador, setValidador] = useState(true);
+  const end = () => {
+    setValidador(false);
+  };
   const { data } = props;
   return (
     <div className="container">
@@ -17,14 +23,21 @@ function ProductCard(props) {
         <b>{data.title}</b>
       </div>
       <div className="container__time">
-        <div className="container__time__watch">00:00:00</div>
-        <div className="container__time__button">
-          <Link to={`/ProductDetail/${data.id}`}>
-            <button type="button" className="button">
-              Go to Detail
-            </button>
-          </Link>
+        <div className="container__time__watch">
+          <Countdown
+            date={Date.now() + parseInt(Math.random() * 300000, 10)}
+            onComplete={end}
+          />
         </div>
+        {validador ? (
+          <div className="container__time__button">
+            <Link to={`/ProductDetail/${data.id}`}>
+              <button type="button" className="button">
+                Go to Detail
+              </button>
+            </Link>
+          </div>
+        ) : null}
       </div>
     </div>
   );
